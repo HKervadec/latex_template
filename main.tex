@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper]{book}
+\documentclass[10pt, letterpaper]{book}
 \usepackage[english]{babel} % Explicit language
 \usepackage[T1]{fontenc} % Encoding
 \usepackage[utf8]{inputenc} % Encoding
@@ -16,25 +16,34 @@
     pageanchor=false
 }
 
-\title{Minimal template for Science\\Report}
-\author{Hoel \textsc{Kervadec}}
-\date{\today}
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry} % Borders
+
+\input{shortcuts}
 
 \begin{document}
     \input{titlepage}
 
     \frontmatter
-
     \chapter*{\centering Abstract}
-        Ce n'est qu'en essayant continuellement que l'on finit par réussir....
-        En d'autres termes... Plus ça rate et plus on a de chances que ça marche...
-
+        Ce n'est qu'en essayant continuellement que l'on finit par réussir.
+        En d'autres termes: plus ça rate et plus on a de chances que ça marche.
     \setcounter{tocdepth}{2}
     \tableofcontents
+
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures
+
+    \addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables
+
     \setlength{\parskip}{5pt}
+
+    \input{input/list_symbols}
 
     \mainmatter
     \input{input/intro}
+
+    \input{input/content}
 
     \input{input/conclusion}
 
