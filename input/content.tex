@@ -1,0 +1,45 @@
+\chapter{Content}
+    \section{Figures}
+        Below a few examples of figures, especially in a two columns environment.
+        First, remember that Figure \ref{fig:intro:shadoko} is always here to help.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.4\textwidth]{figure/intro/shadoko}
+            \label{fig:intro:shadoko}
+            \caption{Professor Shadoko explains something.\cite{denis2012de}}
+        \end{figure}
+
+        \subsection{}
+            For figures that takes the whole page, see the code of Figure \ref{fig:intro:widsom}.
+            \begin{figure*}[h]
+                \centering
+                \includegraphics[width=1\textwidth]{figure/intro/wisdom}
+                \label{fig:intro:widsom}
+                \caption{Some French common wisdom.}
+            \end{figure*}
+
+    \section{Tables}
+        Tables are great to display too much number, as in Table \ref{tab:supertable}
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|r|r|}
+                \hline
+                X & X \\
+                \hline
+                .5 & .5 \\
+                \hline
+                1 & 1 \\
+                \hline
+            \end{tabular}
+            \label{tab:supertable}
+            \caption{X value over X}
+        \end{table}
+
+    \section{Maths}
+        There is different ways to include maths, as $f(x) = \sum_i x_i$, \[ f(x) = \sum_i x_i, \] or even with a proper equation (Equation \eqref{eq:proper}):
+        \begin{equation}
+            \label{eq:proper}
+            f(x) = \sum_i x_i
+        \end{equation}
