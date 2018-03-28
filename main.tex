@@ -1,38 +1,12 @@
-\documentclass[11pt,a4paper,openany,twoside]{book}
-
-\usepackage{hyperref}
-\usepackage{helvet}
+\documentclass[11pt, letterpaper]{book}
 \usepackage[english]{babel} % Explicit language
 \usepackage[T1]{fontenc} % Encoding
-\usepackage[utf8]{inputenc} 
-\usepackage{epsfig}
-\usepackage{amssymb}
-\usepackage{latexsym}
-\usepackage{graphicx}
-\usepackage{multirow}
-\usepackage{algorithm2e}
-\usepackage{mathtools}
-\usepackage{epigraph}
-\usepackage{amsthm}
-\usepackage{subfig}
-\usepackage{fancyhdr}
-\usepackage{ragged2e}
-\usepackage{afterpage}
-\usepackage{ifthen}
-
-\usepackage{fancyhdr}
-\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry} % Borders
-\pagestyle{fancy}
-
-% We don't want chapter and section numbers
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-           
-\fancyhead{}
-\fancyfoot{}
-\fancyfoot[CE,CO]{\thepage}
-\fancyhead[CE]{\leftmark}
-\fancyhead[CO]{\scshape Title of the book} % odd pages: book title
-
+\usepackage[utf8]{inputenc} % Encoding
+\usepackage{lmodern} % Font
+\usepackage{graphicx} % To insert figures
+\usepackage{hyperref} % Clickable links
+\usepackage{amssymb} % math stuffs
+\usepackage{amsmath}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -41,94 +15,52 @@
     urlcolor=black,
     pageanchor=false
 }
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry} % Borders
 
+\usepackage{fancyhdr} % Redefine headings and footers on pages
+\renewcommand{\headrulewidth}{.5pt}
+\pagestyle{fancy}
+\fancyhead{} % Clear it
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage} % Central field for every page
+\fancyhead[CE]{\leftmark} % Central field for even pages
+\fancyhead[CO]{\scshape Main title} % odd pages: book title
 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} % Remove chapter number in page header
 
-%\input{shortcuts}
+\input{shortcuts}
 
 \begin{document}
+    \input{titlepage}
 
-%Title page
+    \frontmatter
+    \chapter*{\centering Abstract}
+        Ce n'est qu'en essayant continuellement que l'on finit par réussir.
+        En d'autres termes: plus ça rate et plus on a de chances que ça marche.
+    \setcounter{tocdepth}{2}
+    \tableofcontents
 
-    \input{input/titlepage}
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures
 
-% Acknowledgements
+    \addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables
 
+    \setlength{\parskip}{5pt}
 
-%Abstract
+    \input{input/list_symbols}
 
-    \chapter*{\textbf{Abstract}}
-    \thispagestyle{empty}
-    \label{ch:abstract}
-    \input{input/abstract}
-
-\frontmatter
-
-%%%%%%%%%%%%%%%%% The List sheets %%%%%%%%%%%%%%%%%%%
-
-  \tableofcontents
-  \listoffigures
-  \let\cleardoublepage\clearpage % Comment this when there are even number of pages in the content sheet
-  \listoftables
-  
-  
-% Un-comment below two lines if you need figures and tables in TOC
-
-    %\addcontentsline{toc}{chapter}{List of Figures}
-    %\addcontentsline{toc}{chapter}{List of Tables}
-
-
-% List of symbols
-    % \input{input/list_symbols}
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\mainmatter    %Starts numbering of pages from "1" 
-
-
-% Chapter 1:  Introduction 
-
-    \chapter{Introduction}
-    \thispagestyle{empty}
-    \label{intro}
+    \mainmatter
     \input{input/intro}
 
+    \input{input/content}
 
-% Chapter 2: Related work
-
-    \chapter{Related work}
-    \thispagestyle{empty}
-    \label{related_work}
-    \input{input/related_work}
-    
-    
-% Chapter 3: Proposed research
-    
-    \chapter{Proposed work}
-    \thispagestyle{empty}
-    \label{Proposed_research}
-    \input{input/proposed_work}
-    
-    
-% Chapter 4: Conclusion/ Work plan    
-    
-    \chapter{Conclusion}
-    \thispagestyle{empty}
-    \label{Conclusion}
     \input{input/conclusion}
 
-% Appendix
     \appendix
-    \thispagestyle{empty}
-    \label{appendix}
     \include{input/appendix1}
 
-
-% Reference
-
-    \addcontentsline{toc}{chapter}{Bibliography} 
+    \addcontentsline{toc}{chapter}{Bibliography}
     \bibliographystyle{ieeetr}
     \bibliography{input/biblio}
-    
-    
 \end{document}
