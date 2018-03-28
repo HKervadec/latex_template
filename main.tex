@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper]{book}
+\documentclass[11pt, letterpaper]{book}
 \usepackage[english]{babel} % Explicit language
 \usepackage[T1]{fontenc} % Encoding
 \usepackage[utf8]{inputenc} % Encoding
@@ -15,8 +15,18 @@
     urlcolor=black,
     pageanchor=false
 }
-
 \usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry} % Borders
+
+\usepackage{fancyhdr} % Redefine headings and footers on pages
+\renewcommand{\headrulewidth}{.5pt}
+\pagestyle{fancy}
+\fancyhead{} % Clear it
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage} % Central field for every page
+\fancyhead[CE]{\leftmark} % Central field for even pages
+\fancyhead[CO]{\scshape Main title} % odd pages: book title
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} % Remove chapter number in page header
 
 \input{shortcuts}
 
@@ -50,6 +60,7 @@
     \appendix
     \include{input/appendix1}
 
-    \bibliographystyle{plain}
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \bibliographystyle{ieeetr}
     \bibliography{input/biblio}
 \end{document}
